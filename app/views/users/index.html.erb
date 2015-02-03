@@ -1,0 +1,18 @@
+<%if current_user%>
+    <p> Hello <%=current_user.name%> | 
+      <%=link_to 'sign out', logout_path, method: :delete%></p>
+      <%else%>
+ 
+  <%= form_tag(signin_path, method: :post) do %>
+
+    <%= label_tag :email %>
+    <%= email_field_tag :email%>
+    <%= label_tag :password %>
+    <%= password_field_tag :password%>
+    <%= submit_tag "login" %>
+  <%end%>
+  <%= form_tag(new_user_path, method: :get) do %>
+    <%= submit_tag "New User? Sign up.." %>
+    <%end%>
+
+  <%end%>
