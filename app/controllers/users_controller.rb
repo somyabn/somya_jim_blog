@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   	redirect_to @user,notice: "New user created."
   end
   def edit
+    
   end
 
   def new
@@ -16,6 +17,22 @@ class UsersController < ApplicationController
 
   def show
   end
+ 
+  def update
+    @user=User.update(@user.id, user_params)
+    redirect_to @user,notice: "User Updated."
+  end
+
+   def destroy
+    @user.destroy
+    if session[:userid] == @user.id
+      session[:id]=nil
+    end
+    redirect_to @user, notice: "Account canceled."
+  end
+
+
+
   private
   def set_user
   	@user = User.find(params[:id])

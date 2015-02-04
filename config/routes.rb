@@ -1,27 +1,27 @@
 Rails.application.routes.draw do
-  get 'comments/index'
+  # get 'comments/index'
 
-  get 'comments/edit'
+  # get 'comments/edit'
 
-  get 'comments/new'
+  # get 'comments/new'
 
-  get 'comments/show'
+  # get 'comments/show'
 
-  get 'user/index'
+  # get 'user/index'
 
-  get 'user/edit'
+  # get 'user/edit'
 
-  get 'user/new'
+  # get 'user/new'
 
-  get 'user/show'
+  # get 'user/show'
 
-  get 'post/index'
+  # get 'post/index'
 
-  get 'post/edit'
+  # get 'post/edit'
 
-  get 'post/new'
+  # get 'post/new'
 
-  get 'post/show'
+  # get 'post/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -37,11 +37,13 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
-    resources :posts
-    resources :comments
 
     post '/signin', to:'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+
+    resources :posts do
+      resources :comments
+    end
   # Example resource route with options:
   #   resources :products do
   #     member do

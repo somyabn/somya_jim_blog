@@ -1,6 +1,10 @@
-h1><%= @user.name %></h1>
-<p>(<%= @user.email %>) <%= @user.bio %></p>
+<h1><%= @user.name %></h1>
 
+	<p><%= @user.bio %></p>
+	
+	<p><%= @user.posts.size %></p>
+	<p><%= link_to 'Create Post', new_post_path, method: :get %></p>
+	
 <h3><%= @user.name %>'s Posts</h3>
 
 <ul>
@@ -9,4 +13,5 @@ h1><%= @user.name %></h1>
   <% end %>
 </ul> 
 
-<%= link_to 'back', users_path %> | <%= link_to 'edit', edit_user_path(@user) %>
+<%= link_to 'Log out', logout_path , method: :delete %> | <%= link_to 'Edit Profile', edit_user_path(@user) %>
+

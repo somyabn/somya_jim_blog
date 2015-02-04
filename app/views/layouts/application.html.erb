@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= flash[:notice] if flash[:notice] %>
-<%= flash[:alert] if flash[:alert] %>
-<%= yield %>
+	<div id="container">
 
+		<!-- <h1><%= current_user ? current_user.name : "no user logged in" %></h1> -->
+	<%= flash[:notice] if flash[:notice] %>
+	<%= flash[:alert] if flash[:alert] %>
+	<%= yield %>
+	</div>
 </body>
 </html>
