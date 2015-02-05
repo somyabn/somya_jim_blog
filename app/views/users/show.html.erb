@@ -1,17 +1,32 @@
-<h1><%= @user.name %></h1>
+<div class="profile_container">
 
-	<p><%= @user.bio %></p>
+	<div class="profileInfo">
+		<h1 class="header">Profile:</h1>
+
+	<h3 class="showName"><%= @user.name %></h3>
+	<h3 class="showBio"><%= @user.bio %></h3>
+	<h4 class="postCount">Total Number of Posts til date:</h4>
+	<p class="showBio"><%= @user.posts.size %></p>
+		
+
+</div>
+
+<div class="postContainer">
+
+	<p id="createPostLink"><%= link_to 'Create Post', new_post_path, method: :get %></p>
 	
-	<p><%= @user.posts.size %></p>
-	<p><%= link_to 'Create Post', new_post_path, method: :get %></p>
-	
-<h3><%= @user.name %>'s Posts</h3>
+	<div class="posts">
+		<ul>
+		  <% @user.posts.each do |post| %>
+		  <li><%= link_to post.title, post %></li>
+		  <% end %>
+		</ul>
 
-<ul>
-  <% @user.posts.each do |post| %>
-  <li><%= link_to post.title, post %></li>
-  <% end %>
-</ul> 
+		<%= link_to 'Log out', logout_path , method: :delete %> <%= link_to 'Edit Profile', edit_user_path(@user) %>
+	</div>
 
-<%= link_to 'Log out', logout_path , method: :delete %> | <%= link_to 'Edit Profile', edit_user_path(@user) %>
+
+</div>
+
+
 
