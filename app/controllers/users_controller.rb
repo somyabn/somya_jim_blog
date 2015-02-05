@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   	redirect_to @user,notice: "New user created."
   end
   def edit
-    
+    @custom_text="Edit Account"
   end
 
   def new
    @user=User.new
+   @custom_text="Sign Up"
   end
 
   def show

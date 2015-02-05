@@ -1,12 +1,15 @@
-<%= form_for @post do |f| %>
-  
-<%= f.label :title %>
-  <%= f.text_field :title %><br />
-  
-  <%= f.label :body %>
-  <%= f.text_area :body %><br />
+	
+
+		<%= form_for @post do |f| %>
+		  
+		
+		  <%= f.text_field :title, :placeholder => 'title'%>
+		  
+		  
+		  <%= f.text_area :body, :placeholder => 'body'%>
 
 
-  
-  <%= f.submit %>
-<% end %>
+		  
+		  <%= f.submit %>
+		<% end %>
+

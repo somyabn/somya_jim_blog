@@ -1,6 +1,21 @@
-<h1>Edit User</h1>
+
+<div id="editContainer">
+
+
+
+	<nav>
+		<ul id="profileMenu">	
+			<%= link_to 'Delete Account', user_path , method: :delete %>
+			<%= link_to 'Cancel', users_path %>
+		</ul>
+	</nav>
+
 <%= render 'form' %>
 <br/>
-<%= link_to 'cancel', users_path %>
-<%= link_to 'Delete Account', user_path , method: :delete %>
+<h1>/h1>
 
+</div>
+
+
+
+			

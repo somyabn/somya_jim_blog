@@ -1,31 +1,44 @@
 <div class="profile_container">
-
-	<div class="profileInfo">
-		<h1 class="header">Profile:</h1>
-
-	<h3 class="showName"><%= @user.name %></h3>
-	<h3 class="showBio"><%= @user.bio %></h3>
-	<h4 class="postCount">Total Number of Posts til date:</h4>
-	<p class="showBio"><%= @user.posts.size %></p>
+	<header id="profileHeader">
 		
 
-</div>
 
-<div class="postContainer">
+			<nav>
+				<ul id="profileMenu">	
+					<li><%= link_to 'Create Post', new_post_path, method: :get %></li>
+					<li><%= link_to 'Edit Profile', edit_user_path(@user) %></li>
+					<li><%= link_to 'Log out', logout_path , method: :delete %> </li>
+				</ul>
+			</nav>
 
-	<p id="createPostLink"><%= link_to 'Create Post', new_post_path, method: :get %></p>
+		<div class="profileInfo">
+			
+			
+
+			<h1 class="header"> <h3 class="showName"> <%= "  #{ @user.name.capitalize} "%></h3></h1>
+			
+			
+
+			<h3 class="showBio"><%= @user.bio %></h3>
+			<h4 class="postCount"> Posts:</h4>
+			<p class="showBio"><%= @user.posts.size %></p>
+
+		</div>
+
+			</header>
 	
+
 	<div class="posts">
+		
+
 		<ul>
 		  <% @user.posts.each do |post| %>
-		  <li><%= link_to post.title, post %></li>
+		  <li id="createPostLink"><%= link_to post.title, post %></li>
 		  <% end %>
 		</ul>
 
-		<%= link_to 'Log out', logout_path , method: :delete %> <%= link_to 'Edit Profile', edit_user_path(@user) %>
+
 	</div>
-
-
 </div>
 
 
