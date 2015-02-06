@@ -3,7 +3,7 @@
 <div class="postHeader">
 	<nav>
 		<ul id="signupMenu">	
-			<%= link_to 'Cancel', posts_path %>
+			<%= link_to 'Cancel', user_path(current_user), method: :get %>
 		</ul>
 	</nav>
 

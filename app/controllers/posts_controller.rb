@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def new
   	 @post=Post.new
+     
   end
 
   def show
@@ -27,16 +28,16 @@ class PostsController < ApplicationController
 
   def update
   
-  @post.update(post_params)
-  redirect_to @post,notice: "Post Updated."
+    @post.update(post_params)
+    redirect_to @post,notice: "Post Updated."
 
   end
 
   def destroy
-   @post.destroy
-    redirect_to user_path(@post.user), notice: "Post deleted."
+    @post.destroy
   
-
+   
+    redirect_to user_path(@post.user), notice: "Post deleted."
   end
 
 

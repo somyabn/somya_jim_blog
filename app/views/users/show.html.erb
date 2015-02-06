@@ -1,8 +1,8 @@
 <div class="profile_container">
 	<header id="profileHeader">
 		
-
-
+	
+  
 			<nav>
 				<ul id="profileMenu">	
 					<li><%= link_to 'Create Post', new_post_path, method: :get %></li>
@@ -29,8 +29,6 @@
 	
 
 	<div class="posts">
-		
-
 		<ul>
 		  <% @user.posts.each do |post| %>
 		  <li id="createPostLink"><%= link_to post.title, post %></li>

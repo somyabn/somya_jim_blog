@@ -1,18 +1,24 @@
-<h1><%= @post.title %></h1>
-<p>created at: <%= @post.created_at %></p>
+<div class="postShowContainer">
+	
+	<nav>
+		<ul id="showPostMenu">	
+			<li><%= link_to 'Edit post', edit_post_path %> </li>
+			<li><%= link_to 'Delete post', post_path, method: :delete%></li>
+		</ul>
+	</nav>
+	
+	<div class ="postForm">
+		
+		<h1><%= @post.title %></h1>
+		<p>created at: <%= @post.created_at %></p>
 
-<p><%= @post.body %></p>
+		<p><%= @post.body %></p>			
+		<div ><%= render 'comments/form' %><div>
+		<% @post.comments.each do |comment| %>
+			<p><%= comment.text_comment%></p>
+		<% end %>
+
+	</div>
 
 
-
-<p><%= link_to 'Edit post', edit_post_path %> </p>
-
-<p><%= link_to 'Delete post', post_path, method: :delete%> </p>
-
-
-<%= render 'comments/form' %>
-
-<h3>Comments</h3>
-<% @post.comments.each do |comment| %>
-	<p><%= comment.text_comment %> | <%= link_to 'Edit ', edit_post_path %> | <p><%= link_to 'Delete post', post_path, method: :delete%> </p></p>
-<% end %>
+</div>

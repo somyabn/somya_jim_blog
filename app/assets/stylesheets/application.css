@@ -152,11 +152,6 @@ h2{
 
 }
 
-
-
-
-
-
 a:hover{
 	background-color:red;
 
@@ -255,6 +250,20 @@ input[type=text],input[type=password], input[type=email],input[type=hidden], #us
 	
 
 }
+#comment_text_comment
+{
+	width: 90%;
+	height: 30px;
+	margin-bottom: 25px;
+	margin-top: 5px;
+	text-align: left;
+	border: 2px solid #ccc;
+	color: #4f4f4f;
+	font-size: 16px;
+	border-radius: 5px;
+	float:left;
+	
+}
 
 label{
 	color: #464646;
@@ -263,6 +272,7 @@ label{
 	
 	font-weight: bold;
 }
+
 
 input[type=submit]
 {
@@ -278,11 +288,7 @@ input[type=submit]
 	outline:none;
 }
 
-.cancel{
 
-	
-	
-}
 .cancel a
 {
 	text-decoration: none;
@@ -304,6 +310,24 @@ input[type=submit]
 input[type=button]:hover{
     background: linear-gradient(#FFFFFF 5%, #246BB2 100%);
 }
+
+#showPostMenu {
+	margin-top: 20px;
+	float:right;
+}
+
+#showPostMenu li{
+	color:black;
+	margin-left:5px;
+	display: inline-block;
+
+}
+
+#post_title{
+
+	float:left;
+}
+
 .postContainer
 {
 	width: 100%;
@@ -331,5 +355,25 @@ input[type=button]:hover{
 	padding: 10px 0;
 	outline:none;
 }
+
+.postShowContainer
+{
+	width: 95%;
+	
+	padding: 30px 50px 35px;
+	background-image: url("comment.jpg");
+	border-radius: 10px;
+	font-family: raleway;
+	margin:10px auto;
+	background-repeat:no-repeat;
+	background-size:100%;	
+	background-position: bottom;
+}
+
+/***************************************************************************************************/
+
+
+
+
 
 

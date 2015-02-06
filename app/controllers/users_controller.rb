@@ -12,11 +12,13 @@ class UsersController < ApplicationController
   end
 
   def new
-   @user=User.new
-   @custom_text="Sign Up"
+    @user=User.new
+    @custom_text="Sign Up"
   end
 
   def show
+ 
+  
   end
  
   def update
