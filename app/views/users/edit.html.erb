@@ -5,13 +5,13 @@
 
 	<nav>
 		<ul id="profileMenu">	
-			<%= link_to 'Delete Account', user_path , method: :delete %>
-			<%= link_to 'Cancel', users_path %>
+			<%= link_to 'Delete Account', user_path(current_user), method: :delete %>
+			<%= link_to 'Cancel', user_path(current_user) %>
 		</ul>
 	</nav>
 
 <%= render 'form' %>
-<br/>
+
 <h1>/h1>
 
 </div>

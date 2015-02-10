@@ -1,11 +1,17 @@
-	
+<% if @user.errors.full_messages.any? %>
+	 <ul>
+		 <% @user.errors.full_messages.each do |message| %>
+		 	<li><%= message%></li> 
+	 	 <% end %>
+	</ul>
+<%end%>
 	<div id="signup_pic">
 		<div class="signup"><%= form_for @user do |f| %>
 		  
 		  <%= f.text_field :name, required: true, :placeholder => 'Name' %><br />
 		  
 		 
-		  <%= f.email_field :email ,required: true, :placeholder => 'email'%><br />
+		  <%= f.email_field :email , :placeholder => 'email'%><br />
 		  
 		  
 		  <%= f.text_area :bio, required: true, :placeholder => 'bio' %><br />

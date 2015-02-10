@@ -20,8 +20,8 @@
 			
 
 			<h3 class="showBio"><%= @user.bio %></h3>
-			<h4 class="postCount"> Posts:</h4>
-			<p class="showBio"><%= @user.posts.size %></p>
+			<!-- <h4 class="postCount"> Posts:</h4> -->
+			<p class="showBio"><%= pluralize(@user.posts.size, 'post') %></p>
 
 		</div>
 

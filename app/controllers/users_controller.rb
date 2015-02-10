@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:edit, :update, :show, :destroy]
+  
   def index
 
   end
+ 
   def create
-  	@user=User.create(user_params)
-  	redirect_to @user,notice: "New user created."
+  	
+    @user=User.new(user_params)
+    if @user.save
+      session[:user_id]=@user.id
+  	   redirect_to @user,notice: "New user created."
+     else
+      render 'new'
+    end
   end
+ 
   def edit
     @custom_text="Edit Account"
   end
@@ -28,9 +37,10 @@ class UsersController < ApplicationController
 
    def destroy
     @user.destroy
-    if session[:userid] == @user.id
-      session[:id]=nil
+    if session[:user_id] == @user.id
+      session[:user_id]=nil
     end
+    
     redirect_to @user, notice: "Account canceled."
   end
 
