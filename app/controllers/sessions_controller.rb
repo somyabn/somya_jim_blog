@@ -6,7 +6,7 @@ class SessionsController <ApplicationController
 			if @user and @user.password == params[:password]
 				flash[:notice]="Successfully signed in!"
 				session[:user_id]=@user.id
-				redirect_to @user
+				redirect_to profile_path
 			 else
 			    flash[:alert]="User does not exist. Please sign up."
 			    redirect_to root_path

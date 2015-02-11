@@ -40,6 +40,18 @@ Rails.application.routes.draw do
 
     post '/signin', to:'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    post '/follow/:id', to: 'users#follow', as: 'follow'
+    get '/profile', to: 'users#profile'
+    post '/unfollow/:id', to: 'users#unfollow', as: 'unfollow'
+
+    resources :users do 
+      member do 
+        get :following, :followers
+      end 
+    end
+
+
+
 
     resources :posts do
       resources :comments

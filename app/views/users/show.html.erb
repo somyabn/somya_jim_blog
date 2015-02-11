@@ -1,6 +1,6 @@
 <div class="profile_container">
 	<header id="profileHeader">
-		
+		<%# render 'follow'  %>
 	
   
 			<nav>
@@ -20,9 +20,11 @@
 			
 
 			<h3 class="showBio"><%= @user.bio %></h3>
+			
+				<%= link_to ' | follow ', follow_path(@user), method: :post %>
 			<!-- <h4 class="postCount"> Posts:</h4> -->
 			<p class="showBio"><%= pluralize(@user.posts.size, 'post') %></p>
-
+			
 		</div>
 
 			</header>
@@ -34,9 +36,45 @@
 		  <li id="createPostLink"><%= link_to post.title, post %></li>
 		  <% end %>
 		</ul>
-
-
 	</div>
+
+
+
+	<div id="usersList">
+		<ul>
+			<% @users.each do |user|%>
+				<% if user.following%>
+					<li> <%=link_to  user.name, user_path(user) %> </h3> </li>
+					<%end%>
+			<%end%>
+		</ul>
+	</div>
+
+
+	<div id="followersList">
+		<h1 id="followingList">I am Following<h1>
+		<ul>
+			<% @users.each do |user|%>
+				<% user.following.each do |u| %>
+					<li> <%=link_to  u.name, user_path(u.id)  %> |<%= link_to 'unfollow', unfollow_path(u.id), method: :post %></li>
+					<%end%>
+			<%end%>
+		</ul>
+	</div>
+
+	<div id="followedList">
+		<h1 id="following_me">Followers<h1>
+		<ul>
+			
+			<% @users.each do |user|%>
+				<% user.followers.each do |u| %>
+					<li> <%=link_to  u.name, user_path(u.id) %>  </li>
+					<%end%>
+			<%end%>
+		</ul>
+	</div>
+
+<li><%= link_to 'Log out', logout_path , method: :delete %> </li>
 </div>
 
 
