@@ -5,6 +5,7 @@
   
 			<nav>
 				<ul id="profileMenu">	
+					<li><%= link_to 'Home', posts_path, method: :get %></li>
 					<li><%= link_to 'Create Post', new_post_path, method: :get %></li>
 					<li><%= link_to 'Edit Profile', edit_user_path(@user) %></li>
 					<li><%= link_to 'Log out', logout_path , method: :delete %> </li>
@@ -20,61 +21,99 @@
 			
 
 			<h3 class="showBio"><%= @user.bio %></h3>
-			
-				<%= link_to ' | follow ', follow_path(@user), method: :post %>
+				<%if current_user != @user%>
+					<%= link_to ' | follow ', follow_path(@user), method: :post %>
+					<%end%>
 			<!-- <h4 class="postCount"> Posts:</h4> -->
 			<p class="showBio"><%= pluralize(@user.posts.size, 'post') %></p>
-			
+			<p class="showBio"><%= @user.following.size%> following</p>
+			<p class="showBio"><%= pluralize(@user.followers.size, 'followers') %></p>
 		</div>
-
-			</header>
 	
 
+		
+	</header>
+	
+	<aside id="UserFollowingFollowers">
+				
+				<div id="usersList">
+					
+					<h2>Suggested people to follow</h2>
+						<ul>
+							<% @users.each do |user|%>
+								<% if user.following%>
+										<li> <%=link_to  user.name, user_path(user) %> </li>
+									<%end%>
+							<%end%>
+						</ul>
+				</div>
+
+				<div id="followersList">
+					<h1 id="followingList">I am Following<h1>
+					<ul>
+						<% @users.each do |user|%>
+							<% user.following.each do |u| %>
+								<li> <%=link_to  u.name, user_path(u.id)  %> |<%= link_to 'unfollow', unfollow_path(u.id), method: :post %></li>
+								<%end%>
+						<%end%>
+					</ul>
+				</div>
+
+				<div id="followedList">
+					<h1 id="following_me">Followers<h1>
+					<ul>
+						
+						<% @users.each do |user|%>
+							<% user.followers.each do |u| %>
+									<% if u.id != @user.id%>
+										<li> <%=link_to  u.name, user_path(u.id) %>  </li>
+									<%end%>
+								<%end%>
+						<%end%>
+					</ul>
+				</div>
+			</aside>			
 	<div class="posts">
 		<ul>
 		  <% @user.posts.each do |post| %>
-		  <li id="createPostLink"><%= link_to post.title, post %></li>
-		  <% end %>
+		  <h1 id="PostTitle"><%=post.title%></h1><h2>by <%=post.user.name%><%=post.created_at%> <%=post.updated_at%>  </h2>
+		  
+				<p><%= post.body %></p>			
+				<div ><%= form_for [post, @comment] do |f| %>
+					<%= f.text_area :text_comment %><br />
+					<%= f.submit %>
+					<% end %>
+				<div>
+				
+				<% post.comments.each do |comment| %>
+					<p><%= comment.text_comment%></p>
+				<% end %>
+
+	</div>
+		<% end %>
+		
+		
+
+
+
+
 		</ul>
+
+	
+
+
 	</div>
 
+	
+
+	
 
 
-	<div id="usersList">
-		<ul>
-			<% @users.each do |user|%>
-				<% if user.following%>
-					<li> <%=link_to  user.name, user_path(user) %> </h3> </li>
-					<%end%>
-			<%end%>
-		</ul>
-	</div>
+	
+
+	
 
 
-	<div id="followersList">
-		<h1 id="followingList">I am Following<h1>
-		<ul>
-			<% @users.each do |user|%>
-				<% user.following.each do |u| %>
-					<li> <%=link_to  u.name, user_path(u.id)  %> |<%= link_to 'unfollow', unfollow_path(u.id), method: :post %></li>
-					<%end%>
-			<%end%>
-		</ul>
-	</div>
-
-	<div id="followedList">
-		<h1 id="following_me">Followers<h1>
-		<ul>
-			
-			<% @users.each do |user|%>
-				<% user.followers.each do |u| %>
-					<li> <%=link_to  u.name, user_path(u.id) %>  </li>
-					<%end%>
-			<%end%>
-		</ul>
-	</div>
-
-<li><%= link_to 'Log out', logout_path , method: :delete %> </li>
 </div>
 
 

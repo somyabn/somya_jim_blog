@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   def show
     @users= User.all
+     @comment = Comment.new
   end
  
   def update

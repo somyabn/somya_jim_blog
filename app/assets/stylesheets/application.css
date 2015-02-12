@@ -15,7 +15,9 @@
  */
 
 body{
+	@import url(http://fonts.googleapis.com/css?family=open sans);
 	margin:0px;
+	font-family: 'Lato', sans-serif;
 }
 
 
@@ -45,7 +47,6 @@ body{
 	height:1000px;
 	width:960px;
 	margin:0px auto;
-	font-family: raleway;
 	
 }
 #editContainer{
@@ -116,7 +117,7 @@ h2{
 #profileMenu{
 	margin-top: 20px;
 	float:right;
-	width:300px;
+	width:400px;
 }
 
 #profileHeader{
@@ -170,9 +171,9 @@ a
 	padding-left: 15px;
 	width:99%;
 	height:880px;
-	color:white;
-	background-image: url("post.jpg");
-	background-size:cover;
+	color:black;
+/*	background-image: url("post.jpg");
+*/	background-size:cover;
 	background-repeat: no-repeat;
 	border-radius: 10px;
 	
@@ -181,7 +182,7 @@ a
 	
 	font-size: 20px;
 	font-weight:bold;
-	color:white;
+	color:black;
 
 }
 #createPostLink{
@@ -190,7 +191,11 @@ list-style-type:none;
 
 }
 
+#UserFollowingFollowers{
+	float:right;
+	color:black;
 
+}
 
 /*div.profileInfo{
 	opacity:0.9;
@@ -363,7 +368,6 @@ input[type=button]:hover{
 	padding: 30px 50px 35px;
 	background-image: url("comment.jpg");
 	border-radius: 10px;
-	font-family: raleway;
 	margin:10px auto;
 	background-repeat:no-repeat;
 	background-size:100%;	
