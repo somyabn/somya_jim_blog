@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def profile
     if current_user 
+      @comment = Comment.new
       @user = current_user
       @users= User.all
       render :show
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
 
   def show
     @users= User.all
-     @comment = Comment.new
+    @comment = Comment.new
   end
  
   def update

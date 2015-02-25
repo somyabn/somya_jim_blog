@@ -12,13 +12,23 @@
 		<h1><%= @post.title %></h1>
 		<p>created at: <%= @post.created_at %></p>
 
-		<p><%= @post.body %></p>			
-		<div ><%= render 'comments/form' %><div>
-		<% @post.comments.each do |comment| %>
-			<p><%= comment.text_comment%></p>
-		<% end %>
+		<p class="post-body"><%= @post.body %></p>			
+		<a class="show-comment">comment</a>
+		<div class="comment-box"><%= render 'comments/form' %></div>
+			
+
+			<% @post.comments.each do |comment| %>
+				<p><%= comment.text_comment%></p>
+			<% end %>
+	
+
 
 	</div>
 
 
 </div>
+
+
+
+				
+				

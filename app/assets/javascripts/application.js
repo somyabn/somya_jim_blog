@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(
+	function(){
+		$(".comment-box").hide();
+
+		$(".show-comment").click(function(){
+			$(this).next('.comment-box:hidden').show();
+	 });
+});
