@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
-
+   
   end
  
   def create
@@ -56,16 +56,16 @@ class UsersController < ApplicationController
   end
 
   def follow
-        @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @rel = Relationship.create(follower_id: current_user.id, followed_id: @user.id)
     redirect_to profile_path
   end
 
   def unfollow
     @user = User.find(params[:id])
-     @rel = Relationship.where(follower_id: current_user.id, followed_id: @user.id)
-     @rel.first.destroy
-     redirect_to profile_path
+    @rel = Relationship.where(follower_id: current_user.id, followed_id: @user.id)
+    @rel.first.destroy
+    redirect_to profile_path
   end
 
 
