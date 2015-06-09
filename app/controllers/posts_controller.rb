@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
   def new
   	 @post=Post.new
-     
   end
 
   def show
@@ -23,40 +22,28 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+   @post = Post.create(post_params)
    redirect_to user_path(current_user), notice: "New post created."
   end
 
   def update
-  
-    @post.update(post_params)
-    redirect_to @post,notice: "Post Updated."
-
+  @post.update(post_params)
+  redirect_to @post,notice: "Post Updated."
   end
 
   def destroy
-    @post.destroy
-  
-   
-    redirect_to user_path(@post.user), notice: "Post deleted."
+  @post.destroy
+  redirect_to user_path(@post.user), notice: "Post deleted."
   end
 
-
-
  private
-  
- 
 
   def post_params
     params.require(:post).permit(:title, :body).merge(userid: current_user.id)
   end
 
-def set_post
+  def set_post
     @post = Post.find(params[:id])
   end
-
-
-
-
 end
 
