@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   
   before_action :set_post, only: [:edit, :update, :show, :destroy]
-
-
-
   def index
     @user=current_user
     @users=User.all
